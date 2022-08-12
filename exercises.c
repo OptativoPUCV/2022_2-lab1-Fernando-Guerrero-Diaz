@@ -37,7 +37,7 @@ Utilice la función sumaN.
 */
 
 void sumaNultimos(int a[], int n, int m, int * suma) {
-   *suma = sumaN(*(a+(n-m)), m); //sumaN recibe un arreglo, pero ya que los arreglos son punteros, puedo mandar un sub arreglo que parte en a[n-m], con longitud m, de esta forma.
+//   *suma = sumaN(*(a+(n-m)), m); //sumaN recibe un arreglo, pero ya que los arreglos son punteros, puedo mandar un sub arreglo que parte en a[n-m], con longitud m, de esta forma.
 }
 
 /*
