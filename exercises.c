@@ -12,7 +12,7 @@ y en c almacena el valor de la suma de a más b.
 */
 
 void suma(int a, int b, int * c) {
-    
+    *c = a + b; //al valor del puntero c le asigno como valor la suma de a y b.
 }
 
 /*
@@ -37,7 +37,7 @@ Utilice la función sumaN.
 */
 
 void sumaNultimos(int a[], int n, int m, int * suma) {
-
+   *suma = sumaN(*(a+(n-m)), m); //sumaN recibe un arreglo, pero ya que los arreglos son punteros, puedo mandar un sub arreglo que parte en a[n-m], con longitud m, de esta forma.
 }
 
 /*
@@ -55,7 +55,11 @@ typedef struct {
 
 
 Persona* crearPersona(char nombre[], char rut[], int edad) {
-   return NULL;
+   Persona* p = malloc(sizeof(Persona));
+   strcpy(p->nombre, nombre);
+   strcpy(p->rut, rut);
+   p->edad = edad;
+   return p;
 }
 
 /*
@@ -72,7 +76,10 @@ typedef struct {
 } Vector;
 
 Vector * crearVector(int n) {
-   return NULL;
+   Vector* v = malloc(sizeof(Vector));
+   v->capacidad = n;
+   v->datos = calloc(n,sizeof(int));
+   return v;
 }
 
 /*
@@ -81,7 +88,7 @@ Programe la función void asignarValor(Vector * v, int i, int valor),
 la cual asigna el valor a la posición i del vector v.
 */
 void asignarValor(Vector * v, int i, int valor) {
-
+   *(v->datos +i) = valor;
 }
 
 /*
@@ -90,7 +97,8 @@ Programe la función int obtenerValor(Vector * v, int i),
 la cual retorna el valor en la posición i del vector v.
 */
 int obtenerValor(Vector * v, int i) {
-   return 0;
+   int result = *(v->datos +i);
+   return result;
 }
 
 /*
@@ -99,7 +107,9 @@ Función que suma los vectores `a` y `b` y
 actualiza el vector `c` con el resultado de la suma.
 */
 void sumaV(Vector * a, Vector * b, Vector * c) {
-
+   for (int i = 0; i< c->capacidad; i++){
+      *(c->datos + i) = obtenerValor(a,i) + obtenerValor(b,i);
+   }
 }
 
 /*
@@ -108,5 +118,11 @@ Use las operaciones implementadas de vectores para
 sumar (a1,a2)+(b1+b2). Almacene el resultado en el vector c.
 */
 void sumaV2(int a1, int a2, int b1, int b2, Vector *c){
+   Vector* a = crearVector(2);
+   Vector* b = crearVector(2);
+   asignarValor(a,0,a1);
+   asignarValor(a,1,a2);
+   asignarValor(b,0,b1);
+   asignarValor(b,1,b2);
 
 }

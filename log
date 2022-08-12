@@ -1,0 +1,16 @@
+Fri 12 Aug 2022 04:53:15 PM UTC: 
+ exercises.c | 30 +++++++++++++++++++++++-------
+ 1 file changed, 23 insertions(+), 7 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘sumaNultimos’:
+exercises.c:40:18: error: passing argument 1 of ‘sumaN’ makes pointer from integer without a cast [-Werror=int-conversion]
+   40 |    *suma = sumaN(*(a+(n-m)), m); //sumaN recibe un arreglo, pero ya que los arreglos son punteros, puedo mandar un sub arreglo que parte en a[n-m], con longitud m, de esta forma.
+      |                  ^~~~~~~~~~
+      |                  |
+      |                  int
+exercises.c:21:15: note: expected ‘int *’ but argument is of type ‘int’
+   21 | int sumaN(int a[], int N) {
+      |           ~~~~^~~
+cc1: all warnings being treated as errors
+Compilation failed
+9aaeb4d
